@@ -1,5 +1,9 @@
 FROM debian:jessie-slim
 
+
+RUN sed -i "s/deb.debian.org/mirrors.163.com/g" /etc/apt/sources.list
+RUN sed -i "s/security.debian.org/mirrors.163.com/g" /etc/apt/sources.list
+
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
